@@ -1,0 +1,90 @@
+syntax = "proto3";
+
+message Get {
+	uint32 id=1;
+	uint32 key=2;
+	string value=3;
+	string consistency_level=4;
+}
+
+message Put {
+	uint32 id=1;
+	uint32 key=2;
+	string value=3;
+	uint64 time=4;
+	string consistency_level=5;
+}
+
+message Response {
+	uint32 id =1;
+	uint32 key=2;
+	bool isReadOrWrite = 3;
+	bool status=4;
+	string value=5;
+	uint64 time=6;
+	string responder_ip=7;
+	uint32 responder_port=8;
+	string responder_name=9;
+	uint32 hint_key=10;
+	string hint_server_name=11;
+	string hint_value=12;
+	uint64 hint_time=13;
+}
+
+message Exception{
+	uint32 id=1;
+	uint32 key=2;
+	string exceptionMessage=3;
+}
+
+message KVStore{
+	uint32 key=1;
+	string value=2;
+	uint64 time=3;
+}
+
+message MinMaxUpdate {
+
+    uint32 min=1;
+    uint32 max=2;
+}
+
+message Hint {
+
+    uint32 key=1;
+    string value=2;
+    uint64 time=3;
+    string failed_server=4;
+}
+
+message ReadRepair {
+
+    uint32 key=1;
+    string value=2;
+    uint64 time=3;
+    string destination_ip=4;
+    uint32 destination_port=5;
+}
+
+message KeyValMessage {
+  oneof keyVal_message {
+    Get get = 1;
+    Put put = 2;
+    Response response=3;
+    Exception exception=4;
+  	KVStore kvStore =5;
+  	Hint hint =6;
+  	ReadRepair readRepair =7;
+  }
+	uint32 connectionWith=8;
+	string coordinator_name=9;
+
+	string coordinator_ip=10;
+	uint32 coordinator_port=11;
+	uint32 hint_key=12;
+    string hint_value=13;
+    uint64 hint_time=14;
+    string hint_failed_server=15;
+    uint64 put_time=16;
+}
+

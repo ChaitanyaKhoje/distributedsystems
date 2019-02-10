@@ -1,0 +1,26 @@
+Distributed Systems [CS557]: Programming Assignment 2
+
+Name: Chaitanya Khoje
+BNumber: B00714581
+
+Programming Language used: Java
+
+How to compile and run the program:
+
+1) "thrift -gen java -out src chord.thrift"
+    This command will generate the thrift files inside the already existing "src" folder/directory.
+2) "make" command to compile the java files.
+3) "./server.sh <port>" to run the server.
+4) "./init nodes.txt" to initialize the finger tables for the running servers.
+
+Note to TA:
+
+String[] teachingAssistants = new String[2];
+
+for(String senpai: teachingAssistants) {
+    if(senpai.equals("Vipul Chaskar")) {
+        System.out.println("Hello Vipul");
+    } else if (senpai.equals("Pradyumna Kaushik")) {
+        System.out.println("Hello Pradyumna");
+    }
+}
