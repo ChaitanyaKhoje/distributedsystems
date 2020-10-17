@@ -1,11 +1,13 @@
 Distributed Systems [CS557]: Programming Assignment 2
-
+ 
 Name: Chaitanya Khoje
 BNumber: B00714581
 
 Programming Language used: Java
 
 How to compile and run the program:
+Hello
+
 
 1) "thrift -gen java -out src chord.thrift"
     This command will generate the thrift files inside the already existing "src" folder/directory.
